@@ -1,8 +1,9 @@
 import React from 'react'
+import '../css/home.css'
 
 const Home = () => {
   return (
-		<div>
+		<div className='homepage-container'>
 			<div>
 				<h1>Welcome to Spindle</h1>
 			</div>
