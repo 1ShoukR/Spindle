@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import theme from '../constants/theme';
 import { Card, CardContent, Typography, TextField, Button } from '@mui/material';
+import { test } from '../hooks/test';
+import { useDispatch } from 'react-redux';
 
 const CreateAccount = () => {
 	// useState Hooks
@@ -8,6 +10,8 @@ const CreateAccount = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setConfirmedPassword] = useState('');
+
+  const dispatch = useDispatch()
 
 	console.log(name, email, password, confirmPassword);
 
@@ -37,7 +41,7 @@ const CreateAccount = () => {
 							<TextField onChange={(e) => setEmail(e.target.value)} id="email" label="Email" variant="outlined" fullWidth className="mb-4" />
 							<TextField onChange={(e) => setPassword(e.target.value)} id="password" label="Password" variant="outlined" fullWidth className="mb-4" />
 							<TextField onChange={(e) => setConfirmedPassword(e.target.value)} id="confirm-password" label="Confirm Password" variant="outlined" fullWidth className="mb-4" />
-							<Button variant="contained" color="primary" fullWidth size="large">
+							<Button onClick={() => test(dispatch)} variant="contained" color="primary" fullWidth size="large">
 								Create Account
 							</Button>
 						</form>
