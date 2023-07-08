@@ -1,0 +1,26 @@
+.nav-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+}
+
+
+.left-section ul {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+	gap: 1rem;
+	list-style: none;
+}
+
+
+.right-section ul{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+	gap: 1rem;
+	list-style: none;
+}
