@@ -1,3 +1,5 @@
+import { redirect } from 'react-router';
+
 const passwordValidation = (user) => {
 	const { password, confirmPassword } = user;
 
@@ -24,7 +26,7 @@ const passwordValidation = (user) => {
 	return true; // Password is valid
 };
 
-export const sendCreateAccountInfo = async (disaptch, user) => {
+export const sendCreateAccountInfo = async (dispatch, user) => {
 	console.log(user);
 	const validate = passwordValidation(user);
 	if (validate === true) {
@@ -44,6 +46,11 @@ export const sendCreateAccountInfo = async (disaptch, user) => {
 			});
 			const data = await response.json();
 			console.log('data', data);
+			if (data.status === 200) {
+				dispatch({ type: 'SET_USER', payload: data.user });
+				alert('Account created successfully');
+				redirect('/')
+			}
 		} catch (error) {
 			console.log('error', error);
 		}
