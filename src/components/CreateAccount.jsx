@@ -1,8 +1,16 @@
-import React from 'react';
+import { useState } from 'react';
 import theme from '../constants/theme';
 import { Card, CardContent, Typography, TextField, Button } from '@mui/material';
 
 const CreateAccount = () => {
+	// useState Hooks
+	const [name, setName] = useState('');
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [confirmPassword, setConfirmedPassword] = useState('');
+
+	console.log(name, email, password, confirmPassword);
+
 	return (
 		<div className="flex justify-center items-center min-h-screen">
 			<div className="w-full px-4">
@@ -25,10 +33,10 @@ const CreateAccount = () => {
 							Create an Account
 						</Typography>
 						<form>
-							<TextField id="name" label="Name" variant="outlined" fullWidth className="mb-4" />
-							<TextField id="email" label="Email" variant="outlined" fullWidth className="mb-4" />
-							<TextField id="password" label="Password" variant="outlined" fullWidth className="mb-4" />
-							<TextField id="confirm-password" label="Confirm Password" variant="outlined" fullWidth className="mb-4" />
+							<TextField onChange={(e) => setName(e.target.value)} id="name" label="Name" variant="outlined" fullWidth className="mb-4" />
+							<TextField onChange={(e) => setEmail(e.target.value)} id="email" label="Email" variant="outlined" fullWidth className="mb-4" />
+							<TextField onChange={(e) => setPassword(e.target.value)} id="password" label="Password" variant="outlined" fullWidth className="mb-4" />
+							<TextField onChange={(e) => setConfirmedPassword(e.target.value)} id="confirm-password" label="Confirm Password" variant="outlined" fullWidth className="mb-4" />
 							<Button variant="contained" color="primary" fullWidth size="large">
 								Create Account
 							</Button>
