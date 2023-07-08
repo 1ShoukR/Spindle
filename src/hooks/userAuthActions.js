@@ -30,7 +30,7 @@ export const sendCreateAccountInfo = async (disaptch, user) => {
 	if (validate === true) {
 		console.log('password is valid');
 		try {
-			const response = await fetch(`/api/auth/login`, {
+			const response = await fetch(`http://localhost:5000/api/auth/create-account`, {
 				method: 'POST',
 				mode: 'cors', // no-cors, *cors, same-origin
 				cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached

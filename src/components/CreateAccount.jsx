@@ -6,13 +6,13 @@ import { sendCreateAccountInfo } from '../hooks/userAuthActions';
 
 const CreateAccount = () => {
 	// useState Hooks
-	const [name, setName] = useState('');
+	const [username, setUsername] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setConfirmedPassword] = useState('');
 
   let user = {
-    name: name,
+    username: username,
     email: email,
     password: password,
     confirmPassword: confirmPassword
@@ -20,7 +20,7 @@ const CreateAccount = () => {
 
   const dispatch = useDispatch()
 
-	console.log(name, email, password, confirmPassword);
+	console.log(username, email, password, confirmPassword);
 
 	return (
 		<div className="flex justify-center items-center min-h-screen">
@@ -44,7 +44,7 @@ const CreateAccount = () => {
 							Create an Account
 						</Typography>
 						<form>
-							<TextField onChange={(e) => setName(e.target.value)} id="name" label="Name" variant="outlined" fullWidth className="mb-4" />
+							<TextField onChange={(e) => setUsername(e.target.value)} id="name" label="Username" variant="outlined" fullWidth className="mb-4" />
 							<TextField onChange={(e) => setEmail(e.target.value)} id="email" label="Email" variant="outlined" fullWidth className="mb-4" />
 							<TextField onChange={(e) => setPassword(e.target.value)} id="password" label="Password" variant="outlined" fullWidth className="mb-4" />
 							<TextField onChange={(e) => setConfirmedPassword(e.target.value)} id="confirm-password" label="Confirm Password" variant="outlined" fullWidth className="mb-4" />
