@@ -26,10 +26,28 @@ const passwordValidation = (user) => {
 
 export const sendCreateAccountInfo = async (disaptch, user) => {
 	console.log(user);
-    const validate = passwordValidation(user);
-    if (validate === true) {
-			console.log('password is valid');
-		} else {
-            console.log(validate);
-        }
+	const validate = passwordValidation(user);
+	if (validate === true) {
+		console.log('password is valid');
+		try {
+			const response = await fetch(`/api/auth/login`, {
+				method: 'POST',
+				mode: 'cors', // no-cors, *cors, same-origin
+				cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+				credentials: 'same-origin', // include, *same-origin, omit
+				headers: {
+					'Content-Type': 'application/json',
+					redirect: 'follow', // manual, *follow, error
+					referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+				},
+				body: JSON.stringify(user), // body data type must match "Content-Type" header
+			});
+			const data = await response.json();
+			console.log('data', data);
+		} catch (error) {
+			console.log('error', error);
+		}
+	} else {
+		console.log(validate);
+	}
 };
